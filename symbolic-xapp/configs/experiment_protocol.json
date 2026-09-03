@@ -1,0 +1,40 @@
+{
+  "protocol_name": "paper-v6-clean-fit-validation-test",
+  "release_scope": "single-point-symbolic-controller",
+  "released_point": {
+    "n_users": 10,
+    "rule_seed": 42,
+    "teacher_seed": 42,
+    "feature_groups": [
+      "absolute",
+      "relative",
+      "rank",
+      "global_stats"
+    ],
+    "max_depth": 7,
+    "min_samples_leaf": 10,
+    "oof_folds": 5,
+    "development_fraction": 0.8,
+    "test_fraction": 0.2
+  },
+  "teacher": {
+    "architecture": [10, 120, 80, 10],
+    "pretraining_frames": 24000,
+    "learning_rate": 0.01,
+    "training_interval": 10,
+    "batch_size": 128,
+    "replay_memory_size": 1024,
+    "adaptive_k_update_interval": 32,
+    "channel_scale": 1000000.0
+  },
+  "continuous_allocator": {
+    "method": "bisection",
+    "delta": 0.005
+  },
+  "data": {
+    "path": "data/data_10.mat",
+    "variable": "input_h",
+    "shape": [30000, 10],
+    "sha256": "e6db298025dc6e8b205775a32d287010f44d2efc5277d2508713e1b669a4bc1b"
+  }
+}
